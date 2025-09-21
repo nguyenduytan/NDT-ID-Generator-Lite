@@ -1,0 +1,40 @@
+{
+  "name": "ndtan/id-generator-lite",
+  "description": "NDT ID Generator \u2014 Lite: a single-file, dependency-free PHP library providing UUID v4 and UUID v7 (RFC 9562).",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tony Nguyen",
+      "email": "admin@ndtan.net",
+      "homepage": "https://nguyenduytan.com"
+    }
+  ],
+  "keywords": [
+    "php",
+    "uuid",
+    "uuidv7",
+    "id-generator",
+    "library",
+    "lite",
+    "ndtan"
+  ],
+  "support": {
+    "issues": "https://github.com/nguyenduytan/NDT-ID-Generator-Lite/issues",
+    "source": "https://github.com/nguyenduytan/NDT-ID-Generator-Lite"
+  },
+  "require": {
+    "php": ">=8.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "ndtan\\": "src/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.5"
+  },
+  "scripts": {
+    "test": "phpunit --testdox"
+  }
+}

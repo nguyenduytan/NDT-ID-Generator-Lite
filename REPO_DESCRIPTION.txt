@@ -1,0 +1,1 @@
+NDT ID Generator — Lite: a single-file, dependency-free PHP library providing UUID v4 and UUID v7 (RFC 9562).
