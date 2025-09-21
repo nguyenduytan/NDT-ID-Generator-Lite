@@ -1,6 +1,6 @@
 {
   "name": "ndtan/id-generator-lite",
-  "description": "NDT ID Generator \u2014 Lite: a single-file, dependency-free PHP library providing UUID v4 and UUID v7 (RFC 9562).",
+  "description": "NDT ID Generator \u2014 Lite: single-file, dependency-free PHP ID generator (UUID v4/v7, ULID, NanoID, Mongo ObjectId, ShortUUID, KSUID, Snowflake).",
   "type": "library",
   "license": "MIT",
   "authors": [
@@ -14,8 +14,13 @@
     "php",
     "uuid",
     "uuidv7",
+    "ulid",
+    "snowflake",
+    "nanoid",
+    "ksuid",
+    "objectid",
+    "shortuuid",
     "id-generator",
-    "library",
     "lite",
     "ndtan"
   ],

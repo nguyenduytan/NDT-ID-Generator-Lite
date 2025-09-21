@@ -1,9 +1,9 @@
 # NDT ID Generator — Lite v0.1.0
 
-- Single-file, dependency-free library
-- UUID v4 and UUID v7 (RFC 9562)
-- PHPUnit tests + GitHub Actions CI
-- MIT License
+### Highlights
+- Single-file, dependency-free
+- IDs: UUID v4/v7, ULID (+monotonic), NanoID, Mongo ObjectId, ShortUUID (Base58), KSUID (Base62), Snowflake (64-bit)
+- PHPUnit tests + CI
 
 Install:
 ```bash

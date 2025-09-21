@@ -1,16 +1,16 @@
-# NDT ID Generator — Lite
+# NDT ID Generator — Lite (v0.1.0)
 
-**Single-file**, dependency-free PHP library providing **UUID v4** and **UUID v7 (RFC 9562)**.  
+**Single-file**, dependency-free PHP ID generator.  
 Namespace: `ndtan` · PHP 8.1+
 
----
-
-## Features
-- ✅ UUID v4 (random)
-- ✅ UUID v7 (time-ordered)
-- ✅ One file only: `src/ID.php`
-- ✅ No configuration · No dependencies
-- ✅ PHPUnit tests + GitHub Actions CI
+Supports:
+- UUID **v4**, UUID **v7** (RFC 9562)
+- **ULID** (+ **monotonic** variant)
+- **NanoID**
+- **Mongo ObjectId**
+- **ShortUUID** (Base58-encoded UUID)
+- **KSUID** (Base62)
+- **Snowflake** (64-bit, returns string)
 
 ---
 
@@ -28,41 +28,39 @@ require __DIR__.'/vendor/autoload.php';
 
 use ndtan\ID;
 
-$u4 = ID::uuid4(); // 4xxx-...
-$u7 = ID::uuid7(); // 7xxx-...
+$u4  = ID::uuid4();
+$u7  = ID::uuid7();
+$ul  = ID::ulid();
+$ulm = ID::ulidMonotonic();
+$na  = ID::nanoid();          // default 21 chars
+$oid = ID::objectId();        // 24 hex
+$suid= ID::shortUuid();       // UUID -> Base58
+$ks  = ID::ksuid();           // 27 Base62
+$sf  = ID::snowflake();       // string
 ```
-**Tip:** UUID v7 is time-ordered → better for DB indexes and logs.
 
----
-
-## API
+### Snowflake config (optional)
 ```php
-ID::uuid4(): string;
-ID::uuid7(): string;
+ID::configureSnowflake([
+  'epoch' => '2020-01-01T00:00:00Z', // or epoch ms
+  'worker_id' => 1, 'datacenter_id' => 1
+]);
+// or per-call:
+$sf = ID::snowflake(['worker_id'=>2]);
 ```
 
 ---
 
-## Step-by-step: Create repo with GitHub Desktop
-
-1. Open **GitHub Desktop** → **File → New repository…**
-2. Name: `NDT-ID-Generator-Lite`  
-   Description: *NDT ID Generator — Lite: a single-file, dependency-free PHP library providing UUID v4 and UUID v7 (RFC 9562).*
-3. Choose local path → Create repository.
-4. Add all files from this package into the repo folder.
-5. Terminal:
-   ```bash
-   composer install
-   composer test
-   ```
-6. Back to GitHub Desktop → **Commit** → **Publish repository**.
-7. Create a release `v0.1.0`.
+## Docs
+See **docs/USAGE.md** for method-by-method details and tips.
 
 ---
 
-## Versioning
-- Initial release: **v0.1.0**
-- Only bugfixes/features for **uuid4/uuid7** (keep it minimal).
+## Testing
+```bash
+composer install
+composer test
+```
 
 ---
 
